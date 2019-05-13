@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+        integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" type="image/png" href="/images/icons-192.png">
+
+    <meta name="theme-color" content="#44b444">
+    <title>Eat the frog</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" onclick="ribbet()"><i class="fas fa-frog"></i><span id="ribbet"></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://ashley.how/eat-the-frog">Home<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ashley.how/eat-the-frog/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="debug()" id="debug-button">Debug: Off</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row main">
+            <div class="col-12 col-sm-4" id="add-section">
+
+                <h2 class="logo text-center">Eat the frog</h2>
+
+                <span class="info-text">What do you need to do today?</span>
+                <br>
+                <input id="inputTask" type="text" name="task" placeholder="If you can imagine it, you can do it...">
+
+                <p id="addUpdate"></p>
+
+                <button onclick="addTask()" class="btn add-task" id="add-button">Add</button>
+                <button onclick="finishAddTask()" id="finish-add-button" class="btn">Next</button>
+
+            </div>
+            <div class="col-12 col-sm-4" id="order-section">
+
+                <h2 class="logo text-center">Eat the frog</h2>
+
+                <span class="info-text">Drag the most difficult tasks to the top</span>
+
+                <!-- Simple List -->
+                
+                    <ul id="simpleList" class="list-group">
+                            <!--<li class="list-group-item  alert fade show">hey
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button></li>-->
+                    </ul>
+            
+                
+                <br>
+                <button onclick="addDiv()" class="btn">Back</button>
+                <button onclick="doTasks()" class="btn">Next</button><br>
+            </div>
+            <div class="col-12 col-sm-4" id="do-section">
+
+                <h2 class="logo text-center">Eat the frog</h2>
+
+                <p id="inspireText" class="info-text">First up</p>
+                <p id="focusTask"></p>
+
+                <div id="results">
+                    <h3>Results</h3>
+                    <p id="completed-tasks"></p>
+                    <p id="skipped-tasks"></p>
+                </div>
+
+                <div id="doControls">
+                    <div id="main-buttons">
+                        <button onclick="changeScreen('order')" class="btn" id="back-button">Back</button>
+                        <button onclick="finishedTask()" id="done-button" class="btn">Done</button>
+                        <button onclick="skipTask()" id="skip-button" class="btn">Skip</button>
+                    </div>
+
+                    <button onclick="addAndReset()" id="add-more" class="btn">Start over</button>
+
+                    <br><br>
+                    <div class="progress">
+                        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100">Add tasks to get started</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://SortableJS.github.io/Sortable/Sortable.js"></script>
+    <script src="scripts/index.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
+        integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo'
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
+        integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
+        crossorigin='anonymous'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+        integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM'
+        crossorigin='anonymous'></script>
+</body>
+
+</html>

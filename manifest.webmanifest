@@ -1,0 +1,21 @@
+{
+    "name": "Eat the frog",
+    "short_name": "Eat the frog",
+    "description": "An alternative approach to getting more done.",
+    "start_url": ".",
+    "background_color": "#fff",
+    "display": "standalone",
+    "theme_color": "#44b444",
+    "icons": [
+      {
+        "src": "/images/icons-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }

@@ -1,0 +1,115 @@
+body,html{
+    text-align:center;
+}
+
+.container-fluid {
+    padding-top: 2em;
+}
+
+.logo {
+    font-family: 'Patrick Hand SC', cursive;
+    color: #44b444;
+    font-size: 2.5em;
+}
+
+#ribbet {
+    color: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#results {
+    display: none;
+    padding-bottom: 10px;
+}
+
+.quote {
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 2em;
+    color: #44b444;
+}
+
+.navbar, .progress-bar {
+    background-color: #44b444!important;
+}
+
+.navbar-toggler {
+     border-color: transparent !important; 
+}
+
+input#inputTask {
+    width: 100%;
+    padding: 5px;
+margin-top: 10px;
+}
+
+input#inputTask:focus {
+    outline: 2px solid #32bc0f;
+}
+
+#simpleList {
+    padding-top: 10px;
+}
+
+.row.main {
+    justify-content: center;
+}
+
+#add-more {
+    display: none;
+}
+
+/*
+.controls {
+    align-items: center;
+}
+
+.arrows {
+    display: flex;
+    justify-content: center;
+    color: #44b444 !important;
+}
+
+.arrows:hover, .arrows:focus {
+    color: #44b444!important;
+    text-decoration: none!important;
+}
+*/
+
+.fa-frog{
+    color: #fff;
+}
+
+.btn {
+    background-color: #44b444;
+    border-color: #44b444;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+p#focusTask {
+    font-size: 1.7em;
+}
+
+.info-text {
+    font-size: 1.2em;
+}
+
+/*button#add-more {
+    display: none;
+}*/
+
+ /*---for debugging---
+#add-section {
+    display: block !important;
+}
+------------------*/
+
+#order-section, #do-section {
+    display: none;
+   /* display: block !important; for debugging*/
+}
