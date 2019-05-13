@@ -10,7 +10,7 @@
 
  var addMoreButton = document.getElementById("add-more");
  var mainButtons = document.getElementById("main-buttons");
- var ribbetText = document.getElementById("ribbet");
+ var ribbetText = document.getElementById("ribbit");
 
   const addScreen = document.getElementById("add-section");
   const orderScreen = document.getElementById("order-section");
@@ -213,8 +213,8 @@ doTasks();
 
  }
 
- function ribbet(){
-  ribbetText.innerHTML = "Ribbet! Time to get stuff done!";
+ function ribbit(){
+  ribbetText.innerHTML = "ribbit! Time to get stuff done!";
   setTimeout(function(){
     ribbetText.innerHTML = "";
  }, 3000);
