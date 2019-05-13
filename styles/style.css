@@ -19,7 +19,6 @@ body,html{
     padding-bottom: 0px;
 }
 
-
 #ribbit {
     color: #fff;
     font-size: 14px;
@@ -32,9 +31,8 @@ body,html{
 }
 
 .quote {
-    font-family: 'Patrick Hand SC', cursive;
-    font-size: 2em;
-    color: #44b444;
+    font-family: 'Yrsa', serif;
+    font-size: 1.7em;
 }
 
 .navbar, .progress-bar {
@@ -67,23 +65,6 @@ input#inputTask:focus {
     display: none;
 }
 
-/*
-.controls {
-    align-items: center;
-}
-
-.arrows {
-    display: flex;
-    justify-content: center;
-    color: #44b444 !important;
-}
-
-.arrows:hover, .arrows:focus {
-    color: #44b444!important;
-    text-decoration: none!important;
-}
-*/
-
 .fa-frog{
     color: #fff;
 }
@@ -107,17 +88,12 @@ p#focusTask {
     font-size: 1.2em;
 }
 
-/*button#add-more {
-    display: none;
-}*/
-
- /*---for debugging---
-#add-section {
-    display: block !important;
-}
-------------------*/
-
 #order-section, #do-section {
     display: none;
-   /* display: block !important; for debugging*/
 }
+
+@media only screen and (max-width: 576px) {
+    .quote {
+        font-size: 1.3em;
+    }
+  }
