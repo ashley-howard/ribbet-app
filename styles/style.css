@@ -7,10 +7,18 @@ body,html{
 }
 
 .logo {
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Satisfy', cursive;
     color: #44b444;
     font-size: 2.5em;
 }
+
+.nav-logo {
+    font-family: 'Satisfy', cursive;
+    color: #fff !important;
+    font-size: 1.4em;
+    padding-bottom: 0px;
+}
+
 
 #ribbit {
     color: #fff;
