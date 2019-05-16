@@ -88,7 +88,7 @@ p#focusTask {
     font-size: 1.2em;
 }
 
-#order-section, #do-section {
+#add-section, #order-section, #do-section {
     display: none;
 }
 
