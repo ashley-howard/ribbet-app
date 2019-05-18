@@ -114,7 +114,7 @@ function addAndReset() {
   finishedTasks = [];
   skippedTasks = [];
   addDiv();
-  clearStorage()
+  //clearStorage(); // backup
 
   var results = document.getElementById("results")
   results.style.display = "none";
@@ -156,6 +156,7 @@ function finishedTask() {
     getSimpleList.removeChild(getSimpleList.firstElementChild);
     todayTasks.shift();
     doTasks();
+    localStorage.setItem('items', JSON.stringify(todayTasks));
     doneInspireText();
     logResults();
   }
@@ -165,7 +166,7 @@ function finishedTask() {
     finishedTasks.push(document.getElementById("focusTask").innerHTML);
     getSimpleList.removeChild(getSimpleList.firstElementChild);
     todayTasks.shift();
-
+    localStorage.setItem('items', JSON.stringify(todayTasks));
     document.getElementById("focusTask").innerHTML = "";
     document.getElementById("inspireText").innerHTML = "Nice! You finished everything for today!";
 
