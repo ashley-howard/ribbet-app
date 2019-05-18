@@ -114,6 +114,7 @@ function addAndReset() {
   finishedTasks = [];
   skippedTasks = [];
   addDiv();
+  clearStorage()
 
   var results = document.getElementById("results")
   results.style.display = "none";
