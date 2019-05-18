@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
-    
+
 
     <meta name="theme-color" content="#44b444">
     <title>Ribbit.</title>
@@ -20,8 +20,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!--<a class="navbar-brand" onclick="ribbit()"><i class="fas fa-frog"></i><span id="ribbit"></span></a>-->
-        <a class="navbar-brand nav-logo" onclick="ribbit()" href="./">Ribbit.</a>
+        <a class="navbar-brand nav-logo" href="./">Ribbit.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,14 +28,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./">Home<span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="debug()" id="debug-button">Debug: Off</a>
+                    <a class="nav-link" onclick="changeScreen('settings')">Settings</a>
                 </li>
             </ul>
         </div>
@@ -44,6 +42,8 @@
 
     <div class="container-fluid">
         <div class="row main">
+
+            <!-- 'Add' section -->
             <div class="col-12 col-sm-4" id="add-section">
 
                 <h2 class="logo text-center">Ribbit.</h2>
@@ -58,26 +58,27 @@
                 <button onclick="finishAddTask()" id="finish-add-button" class="btn">Next</button>
 
             </div>
+
+            <!-- Order section -->
             <div class="col-12 col-sm-4" id="order-section">
 
                 <h2 class="logo text-center">Ribbit.</h2>
 
                 <span class="info-text">Drag the most difficult tasks to the top</span>
 
-                <!-- Simple List -->
-                
-                    <ul id="simpleList" class="list-group">
-                            <!--<li class="list-group-item  alert fade show">hey
+                <ul id="simpleList" class="list-group">
+                    <!--<li class="list-group-item  alert fade show">hey
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                   </button></li>-->
-                    </ul>
-            
-                
+                </ul>
+
                 <br>
                 <button onclick="addDiv()" class="btn">Back</button>
                 <button onclick="doTasks()" class="btn">Next</button><br>
             </div>
+
+            <!-- "Do" section -->
             <div class="col-12 col-sm-4" id="do-section">
 
                 <h2 class="logo text-center">Ribbit.</h2>
@@ -106,8 +107,21 @@
                             role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
                             aria-valuemax="100">Add tasks to get started</div>
                     </div>
-
                 </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="col-12" id="settings">
+                <h2 class="logo text-center">Ribbit.</h2>
+
+                <input type="checkbox" id="dev-mode" name="dev" value="dev"> Dev Mode<br>
+                <input type="checkbox" id="dark-mode" name="dark" value="dark"> Dark Mode<br>
+                <br>
+                <button onclick="saveSettings()" id="save-button" class="btn">Save</button>
+                <!-- Clicking save should check if boxes are ticked, apply them, and then go back to add page -->
+                <button onclick="clearStorage()" id="clear-data" class="btn">Clear Data</button>
+
+                <p id="clearText"></p>
             </div>
         </div>
     </div>

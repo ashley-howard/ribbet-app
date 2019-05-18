@@ -3,12 +3,13 @@ Sortable.create(simpleList, {});
 const getSimpleList = document.getElementById("simpleList");
 
 const input = document.getElementById('inputTask');
-var debugMode = document.getElementById("debug-button");
 
 let todayTasks = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+//let getDev = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
-localStorage.setItem('items', JSON.stringify(todayTasks))
-const data = JSON.parse(localStorage.getItem('items'))
+localStorage.setItem('items', JSON.stringify(todayTasks));
+
+const data = JSON.parse(localStorage.getItem('items'));
 
 var tomorrowTasks = [];
 var finishedTasks = [];
@@ -27,11 +28,16 @@ data.forEach(item => {
 
 var addMoreButton = document.getElementById("add-more");
 var mainButtons = document.getElementById("main-buttons");
-var ribbetText = document.getElementById("ribbit");
+var ribbitText = document.getElementById("ribbit");
 
 const addScreen = document.getElementById("add-section");
 const orderScreen = document.getElementById("order-section");
 const doScreen = document.getElementById("do-section");
+const settingsPage = document.getElementById("settings");
+const devMode = document.getElementById("dev-mode");
+const darkMode = document.getElementById("dark-mode");
+
+//localStorage.setItem('dev', devMode.checked);
 
 const progBar = document.getElementById("progress-bar");
 
@@ -67,17 +73,18 @@ window.onload = function () {
   document.getElementById("inputTask").focus();
 };
 
-function debug() {
-  if (debugMode.innerHTML === 'Debug: Off') {
-    debugMode.innerHTML = 'Debug: On';
-    changeScreen('debug');
-    console.log('Debug On');
+function saveSettings() {
+  if (devMode.checked === true) {
+    changeScreen('dev');
+    console.log('Dev Mode On');
   }
-
-  else if (debugMode.innerHTML === 'Debug: On') {
-    debugMode.innerHTML = 'Debug: Off';
+  else {
     changeScreen('add');
-    console.log('Debug Off');
+    console.log('Dev Mode Off');
+  }
+  if (darkMode.checked === true){
+  }
+  else{
   }
 }
 
@@ -93,7 +100,7 @@ function addTask() {
 
     document.getElementById("addUpdate").innerHTML = `"${getTask}" has been added!`;
     setTimeout(function () {
-    document.getElementById("addUpdate").innerHTML = "";
+      document.getElementById("addUpdate").innerHTML = "";
     }, 2000);
   }
   else {
@@ -114,7 +121,7 @@ function addAndReset() {
 
 function finishAddTask() {
   if (getSimpleList.childElementCount >= 1) {
-    if (debugMode.innerHTML === 'Debug: On') {
+    if (devMode.checked === true) {
     }
     else {
       changeScreen('order');
@@ -130,7 +137,7 @@ function doTasks() {
     var focusTask = getSimpleList.firstElementChild.innerHTML;
     document.getElementById("focusTask").innerHTML = focusTask;
 
-    if (debugMode.innerHTML === 'Debug: On') {
+    if (devMode.checked === true) {
     }
     else {
       changeScreen('do');
@@ -163,7 +170,7 @@ function finishedTask() {
 
     var results = document.getElementById("results")
     addMoreButton.style.display = "inline-block";
-    mainButtons.style.display = "none";    
+    mainButtons.style.display = "none";
     results.style.display = "block";
     var completedResults = document.getElementById("completed-tasks");
     var skippedResults = document.getElementById("skipped-tasks");
@@ -207,15 +214,16 @@ function skipTask() {
   todayTasks.shift();
 }
 
+/*
 function ribbit() {
-  ribbetText.innerHTML = "ribbit! Time to get stuff done!";
+  ribbitText.innerHTML = "ribbit! Time to get stuff done!";
   setTimeout(function () {
-    ribbetText.innerHTML = "";
+    ribbitText.innerHTML = "";
   }, 3000);
-}
+}*/
 
 function addDiv() {
-  if (debugMode.innerHTML === 'Debug: On') {
+  if (devMode.checked === true) {
   }
   else {
     changeScreen('add');
@@ -291,16 +299,18 @@ function changeScreen(div) {
     addScreen.style.display = "block";
     orderScreen.style.display = "none";
     doScreen.style.display = "none";
+    settingsPage.style.display = "none";
   }
 
   else if (div === 'order') {
 
-    if (debugMode.innerHTML === 'Debug: On') {
+    if (devMode.checked === true) {
     }
     else {
       addScreen.style.display = "none";
       orderScreen.style.display = "block";
       doScreen.style.display = "none";
+      settingsPage.style.display = "none";
     }
   }
 
@@ -308,14 +318,23 @@ function changeScreen(div) {
     addScreen.style.display = "none";
     orderScreen.style.display = "none";
     doScreen.style.display = "block";
+    settingsPage.style.display = "none";
   }
-  else if (div === 'debug') {
+
+  else if (div === 'dev') {
     addScreen.style.display = "block";
     orderScreen.style.display = "block";
     doScreen.style.display = "block";
+    settingsPage.style.display = "none";
+  }
+
+  else if (div === 'settings') {
+    addScreen.style.display = "none";
+    orderScreen.style.display = "none";
+    doScreen.style.display = "none";
+    settingsPage.style.display = "block";
   }
 }
-
 
 if (localStorage.getItem('items') !== '[]') {
   doTasks();
@@ -325,4 +344,9 @@ if (localStorage.getItem('items') !== '[]') {
 }
 else {
   changeScreen('add');
+}
+
+function clearStorage() {
+  localStorage.clear();
+  document.getElementById('clearText').innerHTML = 'Please refresh the page to see changes';
 }
