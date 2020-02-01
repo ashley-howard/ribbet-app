@@ -92,6 +92,9 @@ function saveSettings() {
   else {
     changeScreen('add')
   }
+
+  // commit pomodoro to localstorage
+  localStorage.setItem('pomodoro', JSON.stringify([pomodoroActive, +pomodoroTime.value, +shortBreakTime.value, +longBreakTime.value]));
 }
 
 function addTask() {
@@ -366,14 +369,19 @@ const pomodoroTime = document.getElementById("pomodoro-input");
 const shortBreakTime = document.getElementById("short-break-input");
 const longBreakTime = document.getElementById("long-break-input");
 const countdown = document.getElementById("countdown");
-
-countdown.innerText = `${pomodoroTime.value}:00`;
+var pomodoroActive;
 
 var counter = 0;
 var minutes = 0;
 var seconds = 0;
 var interval;
 var paused;
+
+let pomodoroParsed = localStorage.getItem('pomodoro') ? JSON.parse(localStorage.getItem('pomodoro')) : [];
+
+pomodoroParsed[1] ? pomodoroTime.value = pomodoroParsed[1] : pomodoroTime.value = 25;
+pomodoroParsed[2] ? shortBreakTime.value = pomodoroParsed[2] : shortBreakTime.value = 5;
+pomodoroParsed[3] ? longBreakTime.value = pomodoroParsed[3] : longBreakTime.value = 15;
 
 function pomodoro() {
   if (counter < 3) {
@@ -481,18 +489,34 @@ function resetSettings() {
   resetTimer();
 }
 
+if (pomodoroParsed[0]) {
+  pomodoroContainer.style.display = "block";
+  pomodoroLink.innerHTML = 'Pomodoro: On';
+  pomodoroActive = true;
+} else {
+  pomodoroContainer.style.display = "none";
+  pomodoroLink.innerHTML = 'Pomodoro: Off';
+  pomodoroActive = false;
+}
+
 function openPomodoro() {
   if (pomodoroContainer.style.display === "block") {
+    pomodoroActive = false;
     pomodoroContainer.style.display = "none";
     pomodoroLink.innerHTML = 'Pomodoro: Off';
   } else {
+    pomodoroActive = true;
     pomodoroContainer.style.display = "block";
     pomodoroLink.innerHTML = 'Pomodoro: On';
   }
   document.getElementById('navbarNav').className = 'navbar-collapse collapse'
+  localStorage.setItem('pomodoro', JSON.stringify([pomodoroActive, +pomodoroTime.value, +shortBreakTime.value, +longBreakTime.value]));
+  pomodoroParsed = JSON.parse(localStorage.getItem('pomodoro'));
 }
 
 var elem = document.querySelector('.draggable');
-var draggie = new Draggabilly( elem, {
+var draggie = new Draggabilly(elem, {
   // options...
 });
+
+countdown.innerText = `${pomodoroParsed[1] ? countdown.innerHTML = pomodoroParsed[1] : 25}:00`;

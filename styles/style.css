@@ -73,6 +73,10 @@ input#inputTask:focus {
     padding-top: 10px;
 }
 
+.list-group-item {
+    cursor: pointer;
+}
+
 .row.main {
     justify-content: center;
 }
