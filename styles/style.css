@@ -122,7 +122,7 @@ p#focusTask {
     padding: 5px;
     display: none;
     padding-bottom: 5px;
-    cursor: default;
+    cursor: pointer;
 }
 
 #pomodoro-container button {
@@ -159,7 +159,7 @@ input[type=number] {
         box-shadow: none;
         background: none;
         color: black;
-        bottom: 0;
+        bottom: 5%;
         left: unset;
         top: unset;
     }

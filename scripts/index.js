@@ -491,3 +491,8 @@ function openPomodoro() {
   }
   document.getElementById('navbarNav').className = 'navbar-collapse collapse'
 }
+
+var elem = document.querySelector('.draggable');
+var draggie = new Draggabilly( elem, {
+  // options...
+});
