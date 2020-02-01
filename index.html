@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" onclick="changeScreen('settings')">Settings</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="openPomodoro()" id="pomodoro-link">Pomodoro: Off</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -116,13 +119,44 @@
 
                 <input type="checkbox" id="dev-mode" name="dev" value="dev"> Dev Mode<br>
                 <input type="checkbox" id="dark-mode" name="dark" value="dark"> Dark Mode<br>
-                <br>
+
+                <hr>
+
+                <p>Pomodoro Settings (in minutes):</p>
+                <!-- Pomodoro: <input type="number" id="minutes-input" value="25" min="1" oninput="updateTimer()" placeholder="25"> -->
+
+                <div class="pomodoro-settings">
+
+                    Pomodoro: <input type="number" id="pomodoro-input" value="25" min="1" placeholder="25"
+                        oninput="updateSettings()"><br>
+                    Short break: <input type="number" id="short-break-input" value="5" min="1" placeholder="5"
+                        oninput="updateSettings()"><br>
+                    Long break: <input type="number" id="long-break-input" value="10" min="1" placeholder="10"
+                        oninput="updateSettings()">
+                </div>
+
+
+                <br><br>
                 <button onclick="saveSettings()" id="save-button" class="btn">Save</button>
+                <button onclick="resetSettings()" class="btn">Reset</button>
                 <!-- Clicking save should check if boxes are ticked, apply them, and then go back to add page -->
                 <button onclick="clearStorage()" id="clear-data" class="btn">Clear Data</button>
 
                 <p id="clearText"></p>
             </div>
+
+
+        </div>
+    </div>
+
+    <div id="pomodoro-container">
+        <i class="fas fa-cog web" onclick="changeScreen('settings')"></i>
+        <div id="countdown"></div>
+        <div class="pomodoro-controls">
+            <button onclick="pomodoro()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+            <button onclick="changeScreen('settings')" class="mobile">Settings</button>
         </div>
     </div>
 

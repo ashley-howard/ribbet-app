@@ -1,9 +1,18 @@
-body,html{
-    text-align:center;
+body,
+html {
+    text-align: center;
+}
+
+.web {
+    display: block;
+}
+
+.mobile {
+    display: none;
 }
 
 a:hover {
- cursor: pointer;
+    cursor: pointer;
 }
 
 .container-fluid {
@@ -39,18 +48,19 @@ a:hover {
     font-size: 1.7em;
 }
 
-.navbar, .progress-bar {
-    background-color: #44b444!important;
+.navbar,
+.progress-bar {
+    background-color: #44b444 !important;
 }
 
 .navbar-toggler {
-     border-color: transparent !important; 
+    border-color: transparent !important;
 }
 
 input#inputTask {
     width: 100%;
     padding: 5px;
-margin-top: 10px;
+    margin-top: 10px;
 }
 
 input#inputTask:focus {
@@ -69,7 +79,7 @@ input#inputTask:focus {
     display: none;
 }
 
-.fa-frog{
+.fa-frog {
     color: #fff;
 }
 
@@ -92,12 +102,72 @@ p#focusTask {
     font-size: 1.2em;
 }
 
-#add-section, #order-section, #do-section, #settings {
+#add-section,
+#order-section,
+#do-section,
+#settings {
     display: none;
+}
+
+#pomodoro-container {
+    position: absolute;
+    width: 200px;
+    top: 80px;
+    left: 5%;
+    box-shadow: 2px 2px 4px 0px #aaaaaa;
+    background: #68e068;
+    color: white;
+    padding: 5px;
+    display: none;
+    padding-bottom: 5px;
+    cursor: default;
+}
+
+#pomodoro-container button {
+    background: white;
+    border: 0;
+    padding: 1px 7px;
+    margin: 2px auto;
+    border-radius: 5px;
+}
+
+#countdown {
+    font-size: 4em;
+}
+
+input[type=number] {
+    width: 50px;
+    padding: 5px;
+}
+
+#pomodoro-container .fa-cog {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 576px) {
     .quote {
         font-size: 1.3em;
     }
-  }
+
+    #pomodoro-container {
+        width: 100%;
+        box-shadow: none;
+        background: none;
+        color: black;
+        bottom: 0;
+        left: unset;
+        top: unset;
+    }
+
+    .web {
+        display: none;
+    }
+
+    .mobile {
+        display: inline-block;
+    }
+
+}
