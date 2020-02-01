@@ -19,6 +19,7 @@ a:hover {
 
 .container-fluid {
     padding-top: 2em;
+    background: white;
 }
 
 .logo {
@@ -166,6 +167,7 @@ input[type=number] {
         bottom: 5%;
         left: unset;
         top: unset;
+        z-index: -1;
     }
 
     .web {
