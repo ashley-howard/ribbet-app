@@ -74,17 +74,23 @@ window.onload = function () {
 };
 
 function saveSettings() {
-  if (devMode.checked === true) {
-    changeScreen('dev');
-    console.log('Dev Mode On');
+  // if (devMode.checked === true) {
+  //   changeScreen('dev');
+  //   console.log('Dev Mode On');
+  // }
+  // else {
+  //   changeScreen('add');
+  //   console.log('Dev Mode Off');
+  // }
+  // if (darkMode.checked === true) {
+  // }
+  // else {
+  // }
+  if (todayTasks.length !== 0) {
+    changeScreen('do')
   }
   else {
-    changeScreen('add');
-    console.log('Dev Mode Off');
-  }
-  if (darkMode.checked === true) {
-  }
-  else {
+    changeScreen('add')
   }
 }
 
