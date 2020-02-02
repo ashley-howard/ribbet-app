@@ -127,7 +127,7 @@ p#focusTask {
     padding: 5px;
     display: none;
     padding-bottom: 5px;
-    cursor: pointer;
+    cursor: move;
 }
 
 #pomodoro-container button {
