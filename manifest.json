@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/index.html",
+    "start_url": "/ribbit-app/index.html",
     "display": "standalone",
     "background_color": "#44b444",
     "theme_color": "#44b444"
