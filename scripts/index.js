@@ -49,9 +49,15 @@ document.getElementById("done-button").addEventListener("click", function () {
   progBar.style = `width: ${progCalc()}%`;
   if (todayTasks.length > 0) {
     progBar.innerHTML = `${todayTasks.length} to go`;
+    if (todayTasks.length == 1) {
+      document.title = `${todayTasks.length} task left`;
+    } else {
+      document.title = `${todayTasks.length} tasks left`;
+    }
   }
   else {
     progBar.innerHTML = `Everything complete!`;
+    document.title = `Everything complete!`;
   }
 });
 
@@ -59,9 +65,16 @@ document.getElementById("skip-button").addEventListener("click", function () {
   progBar.style = `width: ${progCalc()}%`;
   if (todayTasks.length > 0) {
     progBar.innerHTML = `${todayTasks.length} to go`;
+
+    if (todayTasks.length == 1) {
+      document.title = `${todayTasks.length} task left`;
+    } else {
+      document.title = `${todayTasks.length} tasks left`;
+    }
   }
   else {
     progBar.innerHTML = `Everything complete!`;
+    document.title = `Everything complete!`;
   }
 })
 
@@ -106,6 +119,11 @@ function addTask() {
     liMaker(input.value)
     input.value = '';
     progBar.innerHTML = `${todayTasks.length} to go`;
+    if (todayTasks.length == 1) {
+      document.title = `${todayTasks.length} task left`;
+    } else {
+      document.title = `${todayTasks.length} tasks left`;
+    }
 
     document.getElementById("addUpdate").innerHTML = `"${getTask}" has been added!`;
     setTimeout(function () {
@@ -353,6 +371,11 @@ if (localStorage.getItem('items') !== '[]') {
   document.getElementById("inspireText").innerHTML = "Welcome back. Let's do this!";
   progBar.style = `width: ${progCalc()}%`;
   progBar.innerHTML = `${todayTasks.length} to go`;
+  if (todayTasks.length == 1) {
+    document.title = `${todayTasks.length} task left`;
+  } else {
+    document.title = `${todayTasks.length} tasks left`;
+  }
 }
 else {
   changeScreen('add');
