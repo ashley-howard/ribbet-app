@@ -1,31 +1,38 @@
+$green: #44b444;
+
 body,
 html {
     text-align: center;
+    color: white !important;
 }
 
-.dev-tools {display: none}
+::selection {
+    background-color: lighten($green, 10%);
+}
+
+.dev-tools,
+.mobile {
+    display: none
+}
 
 .web {
     display: block;
 }
 
-.mobile {
-    display: none;
-}
-
-a:hover {
+a:hover,
+.list-group-item {
     cursor: pointer;
 }
 
 .container-fluid {
     padding-top: 2em;
-    background: white;
+    background: $green;
+    height: 100vh;
 }
 
 .logo {
     font-family: 'Satisfy', cursive;
-    color: #44b444;
-    font-size: 2.5em;
+    font-size: 5.5em;
 }
 
 .nav-logo {
@@ -51,9 +58,15 @@ a:hover {
     font-size: 1.7em;
 }
 
-.navbar,
+.navbar {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: lighten($green, 10%) !important;
+}
+
 .progress-bar {
-    background-color: #44b444 !important;
+    background-color: lighten($green, 10%) !important;
 }
 
 .navbar-toggler {
@@ -64,10 +77,10 @@ input#inputTask {
     width: 100%;
     padding: 5px;
     margin-top: 10px;
-}
 
-input#inputTask:focus {
-    outline: 2px solid #32bc0f;
+    &:focus {
+        outline: 2px solid lighten($green, 10%);
+    }
 }
 
 #simpleList {
@@ -75,30 +88,33 @@ input#inputTask:focus {
 }
 
 .list-group-item {
-    cursor: pointer;
+    background-color: lighten($green, 10%) !important;
 }
 
 .row.main {
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 #add-more {
     display: none;
 }
 
-.fa-frog {
-    color: #fff;
-}
+// .fa-frog {
+//     color: #fff;
+// }
 
 .btn {
-    background-color: #44b444;
-    border-color: #44b444;
-    color: #fff;
+    background-color: lighten($green, 10%);
+    border-color: $green;
+    color: white;
     font-size: 1.1em;
-}
 
-.btn:hover {
-    color: #fff;
+    &:hover {
+        color: white;
+        background-color: darken($green, 10%);
+    }
 }
 
 p#focusTask {
@@ -114,6 +130,9 @@ p#focusTask {
 #do-section,
 #settings {
     display: none;
+    top: -70px;
+    max-width: 500px;
+    flex: auto;
 }
 
 #pomodoro-container {
@@ -121,21 +140,32 @@ p#focusTask {
     width: 200px;
     top: 80px;
     left: 5%;
-    box-shadow: 2px 2px 4px 0px #aaaaaa;
-    background: #68e068;
-    color: white;
+    box-shadow: 11px 16px 17px 0px darken($green, 5%);
+    background-color: lighten($green, 10%);
     padding: 5px;
     display: none;
     padding-bottom: 5px;
     cursor: move;
-}
 
-#pomodoro-container button {
-    background: white;
-    border: 0;
-    padding: 1px 7px;
-    margin: 2px auto;
-    border-radius: 5px;
+    button {
+        background-color: lighten($green, 10%);
+        color: white;
+        border: 0;
+        padding: 1px 7px;
+        margin: 2px auto;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: darken($green, 10%);
+        }
+    }
+
+    .fa-cog {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        cursor: pointer;
+    }
 }
 
 #countdown {
@@ -147,13 +177,6 @@ input[type=number] {
     padding: 5px;
 }
 
-#pomodoro-container .fa-cog {
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 576px) {
     .quote {
         font-size: 1.3em;
@@ -163,11 +186,11 @@ input[type=number] {
         width: 100%;
         box-shadow: none;
         background: none;
-        color: black;
+        color: white;
         bottom: 5%;
         left: unset;
         top: unset;
-        z-index: -1;
+        z-index: 0;
         position: fixed;
     }
 

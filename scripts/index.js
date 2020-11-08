@@ -50,14 +50,14 @@ document.getElementById("done-button").addEventListener("click", function () {
   if (todayTasks.length > 0) {
     progBar.innerHTML = `${todayTasks.length} to go`;
     if (todayTasks.length == 1) {
-      document.title = `${todayTasks.length} task left`;
+      document.title = `${todayTasks.length} task left | Ribbit.`;
     } else {
-      document.title = `${todayTasks.length} tasks left`;
+      document.title = `${todayTasks.length} tasks left | Ribbit.`;
     }
   }
   else {
     progBar.innerHTML = `Everything complete!`;
-    document.title = `Everything complete!`;
+    document.title = `Everything complete! | Ribbit.`;
   }
 });
 
@@ -67,14 +67,14 @@ document.getElementById("skip-button").addEventListener("click", function () {
     progBar.innerHTML = `${todayTasks.length} to go`;
 
     if (todayTasks.length == 1) {
-      document.title = `${todayTasks.length} task left`;
+      document.title = `${todayTasks.length} task left | Ribbit.`;
     } else {
       document.title = `${todayTasks.length} tasks left`;
     }
   }
   else {
     progBar.innerHTML = `Everything complete!`;
-    document.title = `Everything complete!`;
+    document.title = `Everything complete! | Ribbit.`;
   }
 })
 
@@ -120,9 +120,9 @@ function addTask() {
     input.value = '';
     progBar.innerHTML = `${todayTasks.length} to go`;
     if (todayTasks.length == 1) {
-      document.title = `${todayTasks.length} task left`;
+      document.title = `${todayTasks.length} task left | Ribbit.`;
     } else {
-      document.title = `${todayTasks.length} tasks left`;
+      document.title = `${todayTasks.length} tasks left | Ribbit.`;
     }
 
     document.getElementById("addUpdate").innerHTML = `"${getTask}" has been added!`;
@@ -372,9 +372,9 @@ if (localStorage.getItem('items') !== '[]') {
   progBar.style = `width: ${progCalc()}%`;
   progBar.innerHTML = `${todayTasks.length} to go`;
   if (todayTasks.length == 1) {
-    document.title = `${todayTasks.length} task left`;
+    document.title = `${todayTasks.length} task left | Ribbit.`;
   } else {
-    document.title = `${todayTasks.length} tasks left`;
+    document.title = `${todayTasks.length} tasks left | Ribbit.`;
   }
 }
 else {
