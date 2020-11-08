@@ -5,7 +5,6 @@ const getSimpleList = document.getElementById("simpleList");
 const input = document.getElementById('inputTask');
 
 let todayTasks = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-//let getDev = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
 localStorage.setItem('items', JSON.stringify(todayTasks));
 
@@ -87,18 +86,6 @@ window.onload = function () {
 };
 
 function saveSettings() {
-  // if (devMode.checked === true) {
-  //   changeScreen('dev');
-  //   console.log('Dev Mode On');
-  // }
-  // else {
-  //   changeScreen('add');
-  //   console.log('Dev Mode Off');
-  // }
-  // if (darkMode.checked === true) {
-  // }
-  // else {
-  // }
   if (todayTasks.length !== 0) {
     changeScreen('do')
   }
@@ -106,7 +93,6 @@ function saveSettings() {
     changeScreen('add')
   }
 
-  // commit pomodoro to localstorage
   localStorage.setItem('pomodoro', JSON.stringify([pomodoroActive, +pomodoroTime.value, +shortBreakTime.value, +longBreakTime.value]));
 }
 
@@ -242,14 +228,6 @@ function skipTask() {
   logResults();
   todayTasks.shift();
 }
-
-/*
-function ribbit() {
-  ribbitText.innerHTML = "ribbit! Time to get stuff done!";
-  setTimeout(function () {
-    ribbitText.innerHTML = "";
-  }, 3000);
-}*/
 
 function addDiv() {
   if (devMode.checked === true) {
