@@ -48,10 +48,10 @@ function randPlaceholder() {
   const arrPlaceholder = ['If you can imagine it, you can do it.', `Don't forget to write all the boring chores too.`, `What is important to do right now?`,
     `What can't wait until tomorrow?`, `Your limitation — it’s only your imagination.`, `Push yourself, because no one else is going to do it for you.`, `Sometimes later becomes never. Do it now.`,
     `Great things never come from comfort zones.`, `Dream it. Wish it. Do it.`, `Success doesn’t just find you. You have to go out and get it.`,
-    `The harder you work for something, the greater you’ll feel when you achieve it.`, `Dream bigger. Do bigger.`,
+    `Dream bigger. Do bigger.`,
     `Don’t stop when you’re tired. Stop when you’re done.`, `Wake up with determination. Go to bed with satisfaction.`, `Do something today that your future self will thank you for.`,
     `It’s going to be hard, but hard does not mean impossible.`, `Don’t wait for opportunity. Create it.`,
-    `The key to success is to focus on goals, not obstacles.`, `If it’s your job to eat a frog, it’s best to do it first thing in the morning.`]
+    `The key to success is to focus on goals, not obstacles.`, `If you gotta eat a frog, best to do it first thing in the morning.`]
 
   var randNo = Math.floor(Math.random() * arrPlaceholder.length);
   input.placeholder = arrPlaceholder[randNo];
@@ -136,6 +136,7 @@ function addTask() {
     document.getElementById("addUpdate").innerHTML = "Please type something";
   }
   logResults();
+  document.getElementById("inputTask").focus();
 }
 
 function addAndReset() {
